@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main"></div>
+</body>
+</html>
+<script>
+    var  json,data,url;
+
+    async function cart(){
+        try{
+        url="http://3.15.96.146/cart";
+        json= await fetch(url);
+        data=await json.json();
+        console.log(data[0]);
+        append(data[0])
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+    cart()
+    function append(data){
+        var div=document.createElement("div");
+
+        var name=document.createElement("p")
+        name.textContent=data.name;
+        name.setAttribute("class","name")
+
+        var desc=document.createElement("p")
+        desc.textContent=data.desc;
+        desc.setAttribute("class","desc")
+
+        var img=document.createElement("img")
+        img.src=data.img;
+        img.setAttribute("class","img")
+
+        var color=document.createElement("p")
+        color.textContent=data.color;
+        color.setAttribute("class","color")
+
+        var quan=document.createElement("p")
+        quan.textContent=data.quan;
+        quan.setAttribute("class","quan")
+
+        var price=document.createElement("p")
+        price.textContent=data.price;
+        price.setAttribute("class","price")
+        
+        div.append(name,desc,img,color,quan,price)
+        document.getElementById("main").append(div)
+    }
+</script>
+<style>
+</style>
