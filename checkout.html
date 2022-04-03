@@ -5,10 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
     <style>
+        .container {
+            
+            display: inline-block;
         
-/*header css*/
+            
+           
+        }
+        #heading {
+            text-align: end;
+            
+
+        }
+        #heading>h1 {
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        #pagetype {
+            width: 700px;
+            height: 50px;
+            background-color: rgb(175, 174, 174);
+           padding: 2px;
+           padding-left: 50px;
+           margin-left: 100px;
+           
+        }
+        input {
+            margin-top: 20px;
+            margin-right: 20px;
+            border: none;
+        }
+        #save_div {
+            margin-left: 500px;
+            width: 200px;
+            height: 40px
+        }
+        button {
+            background: linear-gradient(to right, #ff9966 0%, #ff0066 100%);
+            color: white;
+            border: 1px solid white;
+            padding: 5px;
+        }
+        #form_div {
+           margin-left: 200px;
+        }
+        #add_div{
+            margin-left: 150px;
+        }
+        #order_summery {
+            border: 20px solid rgb(175, 174, 174) ;
+            width: 300px;
+            height: 340px;
+            display: inline-block;
+            margin-top: -100px;
+            text-align: center;
+            margin-left: 100px;
+          
+            
+            
+        }
+        img {
+            width: 100%;
+            height:600px
+        }
+        h2 {
+            font-size: 20px;
+        }
+        #order {
+            background-color: rgb(175, 174, 174);
+            padding: 5px;
+        }
+        #total_div {
+            margin-top: 100px;
+        }
+        /* #order_summery>h4 {
+            text-align: center;
+        } */
+        /*header css*/
 
 #top_header{
     display: flex;
@@ -311,8 +386,7 @@ font-family: sans-serif;
         .container {
             
             display: inline-block;
-            padding-left: 10vw;
-padding-right: 10vw;
+        
             
            
         }
@@ -376,76 +450,75 @@ padding-right: 10vw;
         }
         h1,h2 {
             margin-left: 50px;
-        }
-        #name_logo{
-    width: 100%; 
+        }      
+          #name_logo{
+    width: 100%; margin-left: 300px;
 }
 #imgah{
     width: 280px; height: 30px;
 }
-#imagemaina2{
-    display: grid;
-    margin: auto;
-    border: 0;
-    text-align: center;
-    height: auto;
-    max-width: 100%;
-  } 
     </style>
 </head>
 <body>
-    
-    <div >
-        <img id="imagemaina2"
-          src="https://sslimages.shoppersstop.com/sys-master/root/h99/h94/27349040529438/Strip-Web.jpg"
-          alt=""
-        />
-      </div>
-      <br><br><br><br>
-   
     <div class="container">
-        
+    <div id="heading">
+        <div id="name_logo" onclick=window.location.href="/index.html" ><img  id="imgah" src="https://www.shoppersstop.com/_ui/responsive/common/assets/images/logo.svg"></div>
+
+    </div>
+    <div id="pagename">
+        <h3 id="checkout1">CHECK OUT</h3>
+    </div>
+    <div id="pagetype">
+        <h2>1.DELIVERY METHOD</h2>
+    </div>
+
+    <div id="add_div">
+        <h4>Delivery Address</h4>
+    </div>
+    <div id="form_div">
+    <form>
+       <div> <input type="text" placeholder="Name"/> </div>
+        <div> <input type="Number" placeholder="Mobile*"/></div>
+            <div><input type="number" placeholder="PinCode"/></div>
+                <div><input type="text" placeholder="City"/>
+                    <input type="text" placeholder="State"/></div>
+    </form>
+    
+    <div>
        
-
-         
-    <div class="out">
+        <p> <input type="checkbox" />Save Adress for future reference</p>
     </div>
-         <div class="cart_empty">
-            <div id="bag_div">
-                <div>
-                    <h2>SHOPPING BAG</h2>
-                </div>
-                <div>
-                   <p>YOUR SHOPPING BAG IS EMPTY</p>
-               </div>
-               <div>
-                  <a href="checkout.html"> <button type="submit">Continue Shopping</button></a>
-               </div>
-                    </div>
-            
-
-           
-        </div>
-    
-    <div class="coupon">
-    <input id="applycoupon" type="text" list="coupons"placeholder="Enter coupon code"><button id="coupon">Apply coupon</button>
+    <div id="save_div" >
+      <a href="payment.html" > <button type="submit" >SAVE AND PROCEED</button></a>
     </div>
+     </div>
+    </div>
+    <div id="order_summery">
+       
+            <!-- <h4>ORDER SUMMERY</h4> -->
+            <div>
+                <h2 id="order">ORDER SUMMARY</h2>
+            </div>
+            <div id="total">
 
-    <h1>Total Price</h1><h2 id="total_price"></h2>
-    <button id="checkout" onclick="payment()">Checkout</button>
-</div>
-
-    <datalist id="coupons">
-        <option value="masai30">
-        <option value="masai50">
-        <option value="masai500">
-    </datalist>
-    
+            </div>
+            <div>
+                <h4>DELIVERY CHARGES:<span>       </span>FREE</h4>
+                <h4>GIFT PACKING: <span>       </span>FREE</h4>
+                <h4 id="dis_price"></h4>
+                <h4 id="strike_price">COUPON DISCOUNT</h4>
+            </div>
+            <div>
+                <h3 id="total_div"></h3>
+            </div>
+       
+    </div>
     <div id="footer">
     </div>
-
 </body>
 </html>
+
+
 <script type="module">
 
 
@@ -454,160 +527,12 @@ import footer from "./components/footer.js";
 let footer_box=document.getElementById('footer');
 footer_box.innerHTML=footer();
 </script>
+
 <script>
-    console.log("h")
-    fetchharsh1()
-    var json, data, url,cartArr;
-
-async function fetchharsh1(){
-    try{
-        var url="http://3.15.96.146/cart"
- res=await fetch(url)
-  dataappens=  await res.json()
-console.log(data)
-dataappens=dataappens
-harshappend(dataappens)
-    }
-    catch(error){
-        console.log(error)
-    }
-}
-console.log
-function harshappend(data){
-
-localStorage.setItem("Product_data",JSON.stringify(data));
-cartArr=JSON.parse(localStorage.getItem("Product_data"));
-console.log(cartArr)
-if(cartArr.length>0){
-        document.getElementsByClassName("coupon")[0].setAttribute("style","display:inline;")
-        document.getElementsByClassName("cart_empty")[0].setAttribute("style","display:none")
-create_table(cartArr)
-}
-    else{
-        document.getElementsByClassName("coupon")[0].setAttribute("style","display:none;")
-        document.getElementsByClassName("cart_empty")[0].setAttribute("style","display:inline;")
-    }
-    
-}
-
-   
-    var dis=0;
-    var per=0;
-    var total=0;
-
-
-
-   
-  
-
-
-    function create_table(data){
-        total=0;
-document.getElementsByClassName("out")[0].innerHTML="";
-    data.map(function(elem) {
-       var div=document.createElement("div");
-            div.setAttribute("class","product");
-            var price12=Number(elem.price)
-            var quanp=Number(elem.quan)
-            if(quanp==null || quanp==undefined){
-                quanp=1
-            }
-total=Number(total+price12+quanp)
-console.log(elem.price)
-            var img1=document.createElement("img");
-            img1.setAttribute("src",elem.img);
-            img1.setAttribute("class","img-main");
-
-            
-           
-
-            var h3=document.createElement("h3");
-            h3.innerHTML=elem.name;
-
-            var h4=document.createElement("h4");
-            h4.innerHTML='Rs: '+elem.price+'</span>';
-
-           
-
-            var btn = document.createElement("button");
-            btn.textContent = "remove item";
-            btn.addEventListener("click",function(){
-            deleteToCart(elem);
-        })
-
-            div.append(img1,h3,h4,btn)
-            
-       
-show_price();
-    document.querySelector(".out").append(div)
-
-})}
-
-document.getElementById("coupon").addEventListener("click",function(){
-        var val=document.querySelector("#applycoupon").value;
-        if(val=="masai30")
-        {
-            alert("coupon successfully apply");
-            per=30;
-            dis=0;
-            show_price();
-
-        }
-        else if(val=="masai50")
-        {
-            alert("coupon successfully apply");
-            per=50;
-            dis=0;
-            show_price();
-
-        }
-        else if(val=="masai500")
-        {
-            alert("coupon successfully apply");
-            dis=500;
-            per=0;
-            show_price();
-
-        }
-        else{
-            alert("you enter wrong coupon code")
-        }
-
-    });
- function show_price(){
-    try{
-console.log(total)
-    total=((total-dis)/100)*(100-per);
-    total=Math.round(total-(1));
-    localStorage.setItem("Total_price",JSON.stringify(total));
-    
-    document.getElementById("total_price").innerHTML=`Cart total value =Rs.${total}`;
-}
-catch(er){
-        alert(er);
-        console.log(cartArr)
-    }}
-
-    function deleteToCart(data){
-        total=0
-        create_table(cartArr)
-                cartArr.splice(cartArr.indexOf(data),1);
-                create_table(cartArr);
-                show_price();
-                localStorage.setItem("CartItems",JSON.stringify(cartArr));
-                if(cartArr.length==0){window.location.href="Cart.html"}
-        }
-
-
-
-    function payment()
-    {
-        
-        window.location.href="checkout.html"
-    }
-
-    function home1()
-    {
-        window.location.href="index.html";
-    }
+    var cart_price=JSON.parse(localStorage.getItem("Total_price"));
+    var cart_strikeprice=JSON.parse(localStorage.getItem("strike_price"));
+    console.log("cart_price:",cart_price)
+    document.getElementById('dis_price').innerText='TOTAL CART PRICE:        '+cart_price;
+    document.getElementById("strike_price").innerText='COUPON DISCOUNT:     '+cart_strikeprice;
+    document.getElementById('total_div').innerText='TOTAL  PAYABLE:        '+cart_price;
 </script>
