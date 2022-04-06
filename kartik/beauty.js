@@ -382,6 +382,8 @@ function appen_exp(exp_img){
 
      let div = document.createElement("div")
 
+     div.addEventListener("click",function (){
+        window.location.href="../menproduct.html";});
      let img = document.createElement("img")
      img.setAttribute("id","exp_images")
      img.src = ele.img
@@ -421,7 +423,9 @@ function append_last(last){
 
      let img = document.createElement("img")
      img.src=ele.img
-
+div.addEventListener("click",function (){
+    window.location.href="../menproduct.html";
+})
      div.append(img)
 
      document.getElementById("small").append(div)

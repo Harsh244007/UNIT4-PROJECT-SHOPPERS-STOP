@@ -313,9 +313,12 @@ font-family: sans-serif;
             display: inline-block;
             padding-left: 10vw;
 padding-right: 10vw;
-            
+         
            
         }
+        #header{
+               display: none;
+           } 
         #heading {
             text-align: center;
             
@@ -395,6 +398,7 @@ padding-right: 10vw;
 </head>
 <body>
     
+    <div id="header"></div>
     <div >
         <img id="imagemaina2"
           src="https://sslimages.shoppersstop.com/sys-master/root/h99/h94/27349040529438/Strip-Web.jpg"
@@ -445,40 +449,47 @@ padding-right: 10vw;
     </div>
 
 </body>
-</html>
 <script type="module">
+    
+    import header from "./components/header.js";
+    
+    let header_box=document.getElementById("header");
+    header_box.innerHTML=header();
+    
+    let input=document.getElementById('search_btn');
+    
+    input.addEventListener('click',()=>{
+        let input_value=document.getElementById('search_bar');
+        localStorage.setItem("search_value",JSON.stringify(input_value));
+        window.location.href="footer.html";
+    });
+    
+    import footer from "./components/footer.js";
+    
+    let footer_box=document.getElementById('footer');
+    footer_box.innerHTML=footer();
+    
+    </script>
 
-
-import footer from "./components/footer.js";
-
-let footer_box=document.getElementById('footer');
-footer_box.innerHTML=footer();
-</script>
 <script>
-    console.log("h")
-    fetchharsh1()
+
     var json, data, url,cartArr;
 
-async function fetchharsh1(){
-    try{
-        var url="http://3.15.96.146/cart"
- res=await fetch(url)
-  dataappens=  await res.json()
-console.log(data)
+
+//         var url="http://3.15.96.146/cart"
+//  res=await fetch(url)
+//   dataappens=  await res.json()
+var dataappens=JSON.parse(localStorage.getItem("onclickdatacart"))
+
 dataappens=dataappens
 harshappend(dataappens)
-    }
-    catch(error){
-        console.log(error)
-    }
-}
-console.log
+ 
 function harshappend(data){
 
 localStorage.setItem("Product_data",JSON.stringify(data));
 cartArr=JSON.parse(localStorage.getItem("Product_data"));
-console.log(cartArr)
-if(cartArr.length>0){
+console.log(cartArr!={})
+if(cartArr!={}){
         document.getElementsByClassName("coupon")[0].setAttribute("style","display:inline;")
         document.getElementsByClassName("cart_empty")[0].setAttribute("style","display:none")
 create_table(cartArr)
@@ -504,28 +515,29 @@ create_table(cartArr)
     function create_table(data){
         total=0;
 document.getElementsByClassName("out")[0].innerHTML="";
-    data.map(function(elem) {
+s(data)
+    function s(elem) {
        var div=document.createElement("div");
             div.setAttribute("class","product");
-            var price12=Number(elem.price)
-            var quanp=Number(elem.quan)
+            var price12=Number(elem.Price)
+            var quanp=1
             if(quanp==null || quanp==undefined){
                 quanp=1
             }
 total=Number(total+price12+quanp)
-console.log(elem.price)
+console.log(elem.Price)
             var img1=document.createElement("img");
-            img1.setAttribute("src",elem.img);
+            img1.setAttribute("src",elem.image2);
             img1.setAttribute("class","img-main");
 
             
            
 
             var h3=document.createElement("h3");
-            h3.innerHTML=elem.name;
+            h3.innerHTML=elem.BrandName;
 
             var h4=document.createElement("h4");
-            h4.innerHTML='Rs: '+elem.price+'</span>';
+            h4.innerHTML='Rs: '+elem.Price+'</span>';
 
            
 
@@ -541,7 +553,8 @@ console.log(elem.price)
 show_price();
     document.querySelector(".out").append(div)
 
-})}
+};
+}
 
 document.getElementById("coupon").addEventListener("click",function(){
         var val=document.querySelector("#applycoupon").value;
@@ -574,14 +587,19 @@ document.getElementById("coupon").addEventListener("click",function(){
         }
 
     });
+
+    
+    localStorage.removeItem("Total_price")
+    localStorage.setItem("Total_price",JSON.stringify(dataappens.Price));
  function show_price(){
     try{
 console.log(total)
     total=((total-dis)/100)*(100-per);
     total=Math.round(total-(1));
-    localStorage.setItem("Total_price",JSON.stringify(total));
+    localStorage.removeItem("Total_price")
+    localStorage.setItem("Total_price",Number(dataappens.Price));
     
-    document.getElementById("total_price").innerHTML=`Cart total value =Rs.${total}`;
+    document.getElementById("total_price").innerHTML=`Cart total value =Rs.${dataappens.Price}`;
 }
 catch(er){
         alert(er);
@@ -594,6 +612,7 @@ catch(er){
                 cartArr.splice(cartArr.indexOf(data),1);
                 create_table(cartArr);
                 show_price();
+                localStorage.removeItem("CartItems")
                 localStorage.setItem("CartItems",JSON.stringify(cartArr));
                 if(cartArr.length==0){window.location.href="Cart.html"}
         }
@@ -611,3 +630,4 @@ catch(er){
         window.location.href="index.html";
     }
 </script>
+</html>

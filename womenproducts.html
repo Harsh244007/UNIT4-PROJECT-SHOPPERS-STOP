@@ -121,7 +121,7 @@
         <button id="harshrefinesearch">REFINE SEARCH</button>
         </div>
         
-<div id="harshmain">
+        <div id="mainbodygaurav"></div>
     
 </div>
 
@@ -155,126 +155,202 @@ footer_box.innerHTML=footer();
 
 </script>
     <script >
-        var data,res,harshnormal2,harsh1,harshhtol,harshltoh,harsh4;
+//         var data,res,harshnormal2,harsh1,harshhtol,harshltoh,harsh4;
     
-        var hmain= document.getElementById("harshmain");
-var count=0;
-        fetchharsh1()
-async function fetchharsh1(){
+//         var hmain= document.getElementById("harshmain");
+// var count=0;
+//         fetchharsh1()
+// async function fetchharsh1(){
+//     try{
+//         var url="http://3.15.96.146/women"
+//  res=await fetch(url)
+//   data=  await res.json()
+// console.log(data)
+// harsh1=data
+// harsh4=harsh1;
+// harshnormal2=harsh4;
+// harshltoh=harsh4;
+//  harshhtol=harsh4;
+// harshappend(data,hmain)
+//     }
+//     catch(error){
+//         console.log(error)
+//     }
+// }
+// function harshsort1(){
+
+// var harshsort2=document.getElementById("harshsort")
+// if(harshsort2.value=="harshatoz"){
+//     count++;
+//     harshnormal2.sort(function (x, y) {
+//         let a = x.name.toUpperCase(),
+//         b = y.name.toUpperCase();
+//     return a == b ? 0 : a > b ? 1 : -1
+//     }); 
+//     harshappend(harshnormal2,hmain)
+// }
+// else if(harshsort2.value=="harshztoa"){
+//     count++;
+//     harshnormal2.sort(function (x, y) {
+//         let b = x.name.toUpperCase(),
+//         a = y.name.toUpperCase();
+//     return a == b ? 0 : a > b ? 1 : -1
+//     }); 
+//     harshappend(harshnormal2,hmain)
+// }
+
+// else if(harshsort2.value=="harshltoh"){
+// count++;
+// harshltoh.sort(function (x, y) {
+    
+//    return x.price - y.price;
+// });
+
+
+// harshappend(data,hmain)
+// }
+// else if(harshsort2.value=="harshhtol")
+// {
+// count++;
+// harshhtol.sort(function (x, y) {
+    
+//     return y.price - x.price;
+// });
+
+// harshappend(harshhtol,hmain)
+// }
+// else if(harshsort2.value=="harshdltoh"){
+// count++;
+//     harshltoh.sort(function (x, y) {
+        
+//        return x.off - y.off;
+//    });
+
+
+//    harshappend(data,hmain)
+// }
+// else if(harshsort2.value=="harshdhtol")
+// {
+//     count++;
+//     harshhtol.sort(function (x, y) {
+        
+//         return y.off - x.off;
+//     });
+ 
+//     harshappend(harshhtol,hmain)
+// }
+
+// }
+
+// console.log(harsh1,hmain)
+// if(count==0){
+// harshappend(harsh1,hmain)
+// }
+
+  
+
+// function harshappend(data,hmain){
+// console.log(data)   
+//     hmain.innerHTML=null;
+// data.forEach((e)=>{
+//   // console.log(e)
+//     let div=document.createElement("div")
+//     div.id="harshdiv"
+
+// let harshimage=document.createElement("img")
+// harshimage.src=e.img;
+// harshimage.id="harshimage";
+
+// let harshtitle=document.createElement("p")
+// harshtitle.innerText=e.name;
+// harshtitle.id="harshtitle"
+// let harshdescription=document.createElement("p")
+// harshdescription.innerText=e.description;
+// harshdescription.id="harshdescription";
+
+// let harshprice=document.createElement("p1")
+// harshprice.innerText=`₹${e.price}`;
+// harshprice.id="harshprice";
+
+
+// let harshprice2=document.createElement("p1")
+// harshprice2.innerText=e.strikeprice;
+
+// harshprice2.id="harshstrike";
+
+// let harshprice3=document.createElement("p1")
+// if(e.off==""){
+// harshprice3.innerText=null;
+// }
+// else{
+// harshprice3.innerText=`${e.off}% off`;
+// }
+// harshprice3.id="harshofftext";
+
+// let harshnewline=document.createElement("p")
+// harshnewline.innerText="";
+// div.onclick=function(){
+//     localStorage.setItem("data",JSON.stringify(e));
+//     window.location.href="mensProductPage.html"
+// }
+// div.append(harshimage,harshtitle,harshdescription,harshprice,harshprice2,harshprice3,harshnewline)
+
+// hmain.append(div)
+// })
+// }
+
+var data,res,harshnormal2,harsh1,harshhtol,harshltoh,harsh4;
+    var maingaurav=document.getElementById("mainbodygaurav")
+    let urlg="http://3.15.96.146/women";
+    var datag,resg,harshnormal2g,harsh1g,harshhtolg,harshltohg,harsh4g;
+    async function fetchgauurav1(){
     try{
-        var url="http://3.15.96.146/women"
- res=await fetch(url)
-  data=  await res.json()
-console.log(data)
-harsh1=data
-harsh4=harsh1;
-harshnormal2=harsh4;
-harshltoh=harsh4;
- harshhtol=harsh4;
-harshappend(data,hmain)
+ //       let url="http://3.15.96.146/mens";
+ resg=await fetch(urlg)
+   datag=  await resg.json()
+console.log(datag)
+harsh1g=datag
+harsh4g=harsh1g;
+harshnormal2g=harsh4g;
+harshltohg=harsh4g;
+//  harshhtolg=harsh4g;
+  gauravappend(datag,maingaurav)
     }
     catch(error){
         console.log(error)
     }
 }
-function harshsort1(){
-
-var harshsort2=document.getElementById("harshsort")
-if(harshsort2.value=="harshatoz"){
-    count++;
-    harshnormal2.sort(function (x, y) {
-        let a = x.name.toUpperCase(),
-        b = y.name.toUpperCase();
-    return a == b ? 0 : a > b ? 1 : -1
-    }); 
-    harshappend(harshnormal2,hmain)
-}
-else if(harshsort2.value=="harshztoa"){
-    count++;
-    harshnormal2.sort(function (x, y) {
-        let b = x.name.toUpperCase(),
-        a = y.name.toUpperCase();
-    return a == b ? 0 : a > b ? 1 : -1
-    }); 
-    harshappend(harshnormal2,hmain)
-}
-
-else if(harshsort2.value=="harshltoh"){
-count++;
-harshltoh.sort(function (x, y) {
-    
-   return x.price - y.price;
-});
-
-
-harshappend(data,hmain)
-}
-else if(harshsort2.value=="harshhtol")
-{
-count++;
-harshhtol.sort(function (x, y) {
-    
-    return y.price - x.price;
-});
-
-harshappend(harshhtol,hmain)
-}
-else if(harshsort2.value=="harshdltoh"){
-count++;
-    harshltoh.sort(function (x, y) {
-        
-       return x.off - y.off;
-   });
-
-
-   harshappend(data,hmain)
-}
-else if(harshsort2.value=="harshdhtol")
-{
-    count++;
-    harshhtol.sort(function (x, y) {
-        
-        return y.off - x.off;
-    });
- 
-    harshappend(harshhtol,hmain)
-}
-
-}
-
-console.log(harsh1,hmain)
-if(count==0){
-harshappend(harsh1,hmain)
-}
-
-  
-
-function harshappend(data,hmain){
-console.log(data)   
-    hmain.innerHTML=null;
-data.forEach((e)=>{
+fetchgauurav1()
+    function gauravappend(datag,maingaurav){
+            console.log(datag)   
+            maingaurav.innerHTML=null;
+            datag.forEach((e)=>{
   // console.log(e)
-    let div=document.createElement("div")
-    div.id="harshdiv"
+    let divg=document.createElement("div")
+    divg.id="harshdivg"
 
 let harshimage=document.createElement("img")
-harshimage.src=e.img;
+harshimage.src=e.image2;
 harshimage.id="harshimage";
 
 let harshtitle=document.createElement("p")
-harshtitle.innerText=e.name;
+harshtitle.innerText=e.BrandName;
 harshtitle.id="harshtitle"
 let harshdescription=document.createElement("p")
-harshdescription.innerText=e.description;
+harshdescription.innerText=e.ProductName;
 harshdescription.id="harshdescription";
 
 let harshprice=document.createElement("p1")
-harshprice.innerText=`₹${e.price}`;
+harshprice.innerText=`₹${e.Price}`;
 harshprice.id="harshprice";
 
 
 let harshprice2=document.createElement("p1")
-harshprice2.innerText=e.strikeprice;
+let offgaurav = e.Price;
+let offgaurav1= e.strikeoffPrice;
+console.log((offgaurav1*100)/offgaurav);
+
+harshprice2.innerText=e.strikeoffPrice;
 
 harshprice2.id="harshstrike";
 
@@ -283,20 +359,174 @@ if(e.off==""){
 harshprice3.innerText=null;
 }
 else{
-harshprice3.innerText=`${e.off}% off`;
+harshprice3.innerText=`50 % off`;
 }
 harshprice3.id="harshofftext";
 
 let harshnewline=document.createElement("p")
 harshnewline.innerText="";
-div.onclick=function(){
-    localStorage.setItem("data",JSON.stringify(e));
-    window.location.href="mensProductPage.html"
+divg.onclick=function(){
+    localStorage.removeItem("onclickdatacart")
+    localStorage.setItem("onclickdatacart",JSON.stringify(e));
+    window.location.href="womenData.html"
 }
-div.append(harshimage,harshtitle,harshdescription,harshprice,harshprice2,harshprice3,harshnewline)
+divg.append(harshimage,harshtitle,harshdescription,harshprice,harshprice2,harshprice3,harshnewline)
 
-hmain.append(div)
+maingaurav.append(divg)
 })
-}
+    };
+
+
+
+
+
+
+// //     async function fetchharsh1(){
+// //     try{
+// //         var url="http://3.15.96.146/mens"
+// //  res=await fetch(url)
+// //  console.log(res)
+// //   data=  await res.json()
+// // console.log(data)
+// // harsh1=data
+// // harsh4=harsh1;
+// // harshnormal2=harsh4;
+// // harshltoh=harsh4;
+// //  harshhtol=harsh4;
+// // harshappend(data,hmain)
+// //     }
+// //     catch(error){
+// //         console.log(error)
+// //     }
+// // }    
+
+//         var hmain= document.getElementById("harshmain");
+// var count=0;
+
+//     //    fetchharsh1()
+        
+     
+
+// function harshsort1(){
+
+//     var harshsort2=document.getElementById("harshsort")
+// if(harshsort2.value=="harshatoz"){
+//     count++;
+//     harshnormal2.sort(function (x, y) {
+//         let a = x.name.toUpperCase(),
+//         b = y.name.toUpperCase();
+//     return a == b ? 0 : a > b ? 1 : -1
+//     }); 
+//     harshappend(harshnormal2,hmain)
+// }
+// else if(harshsort2.value=="harshztoa"){
+//     count++;
+//     harshnormal2.sort(function (x, y) {
+//         let b = x.name.toUpperCase(),
+//         a = y.name.toUpperCase();
+//     return a == b ? 0 : a > b ? 1 : -1
+//     }); 
+//     harshappend(harshnormal2,hmain)
+// }
+
+// else if(harshsort2.value=="harshltoh"){
+// count++;
+// harshltoh.sort(function (x, y) {
+    
+//    return x.price - y.price;
+// });
+
+
+// harshappend(data,hmain)
+// }
+// else if(harshsort2.value=="harshhtol")
+// {
+// count++;
+// harshhtol.sort(function (x, y) {
+    
+//     return y.price - x.price;
+// });
+
+// harshappend(harshhtol,hmain)
+// }
+// else if(harshsort2.value=="harshdltoh"){
+// count++;
+//     harshltoh.sort(function (x, y) {
+        
+//        return x.off - y.off;
+//    });
+
+
+//    harshappend(data,hmain)
+// }
+// else if(harshsort2.value=="harshdhtol")
+// {
+//     count++;
+//     harshhtol.sort(function (x, y) {
+        
+//         return y.off - x.off;
+//     });
+ 
+//     harshappend(harshhtol,hmain)
+// }
+
+// }
+
+// // console.log(harsh1,hmain)
+// // if(count==0){
+// // harshappend(harsh1,hmain)
+// // }
+
+  
+
+// function harshappend(data,hmain){
+// console.log(data)   
+//     hmain.innerHTML=null;
+// data.forEach((e)=>{
+//   // console.log(e)
+//     let div=document.createElement("div")
+//     div.id="harshdiv"
+
+// let harshimage=document.createElement("img")
+// harshimage.src=e.img;
+// harshimage.id="harshimage";
+
+// let harshtitle=document.createElement("p")
+// harshtitle.innerText=e.name;
+// harshtitle.id="harshtitle"
+// let harshdescription=document.createElement("p")
+// harshdescription.innerText=e.description;
+// harshdescription.id="harshdescription";
+
+// let harshprice=document.createElement("p1")
+// harshprice.innerText=`₹${e.price}`;
+// harshprice.id="harshprice";
+
+
+// let harshprice2=document.createElement("p1")
+// harshprice2.innerText=e.strikeprice;
+
+// harshprice2.id="harshstrike";
+
+// let harshprice3=document.createElement("p1")
+// if(e.off==""){
+// harshprice3.innerText=null;
+// }
+// else{
+// harshprice3.innerText=`${e.off}% off`;
+// }
+// harshprice3.id="harshofftext";
+
+// let harshnewline=document.createElement("p")
+// harshnewline.innerText="";
+// div.onclick=function(){
+//     localStorage.setItem("data",JSON.stringify(e));
+//     window.location.href="mensProductPage.html"
+// }
+// div.append(harshimage,harshtitle,harshdescription,harshprice,harshprice2,harshprice3,harshnewline)
+
+// hmain.append(div)
+// })
+// }
 
     </script>

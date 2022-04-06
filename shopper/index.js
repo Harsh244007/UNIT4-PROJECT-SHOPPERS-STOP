@@ -1,478 +1,128 @@
-const url='http://54.147.212.115:5000/homepages'
-                async function fetching(){
-                    try {
-                        let res= await fetch(url)
-                        let data=await res.json();
-                        console.log(data)
-                        topslider(data)
-                        slider2(data)
-                        slider3(data)
-                        slider4(data)
-                        slider5(data)
-                        // return data
-                    } catch (error) {
-                        console.log('eEe',error)
-                    }
-                } 
-                fetching()
+
+
+
+let input=document.getElementById('search_btn');
+
+input.addEventListener('click',()=>{
+    let input_value=document.getElementById('search_bar');
+    localStorage.setItem("search_value",JSON.stringify(input_value));
+    window.location.href="footer.html";
+});
+
+import footer from "./components/footer.js";
+
+let footer_box=document.getElementById('footer');
+footer_box.innerHTML=footer();
+
+
+
+let res;
+let data;
+async function header(){
+    try{
+         res=await fetch("http://13.57.228.21:5001/header");
+         data=await res.json();
+        console.log(data);
+        showitems();
+    }catch(err){
+        console.log();
+    }
+}
+header();
+function showitems(){
     
-    console.log('hahahahahahahha')
-    var car= document.querySelector('.carousel1')
-    var car2= document.querySelector('.carousel2')
-    var car3=document.querySelector('.carousel3')
-    var car4=document.querySelector('.carousel4')
-    var car5=document.querySelector('.carousel5')
-function topslider(d){
-//banners append
-    let ban1=document.createElement('img')
-    ban1.setAttribute('class','bimg')
-    ban1.src=d[1].bannerimg
-    let banim=document.querySelector('.bannerimg2')
-    banim.append(ban1)
+    let image1=document.createElement("img");
+    image1.src=data[0].image;
+    image1.setAttribute("id","home_logo");
 
-    let ban2=document.createElement('img')
-    ban2.src=d[1].bannerimg2
-    let banim2=document.querySelector('.bannerimg')
-    banim2.append(ban2)
+    let title1=document.createElement("p");
+    title1.innerText=data[0].title;
+    title1.setAttribute("id","home_p");
 
-    let ban3=document.createElement('img')
-    ban3.src=d[2].bannerimg
-    let banim3=document.querySelector('.bannerimg')
-    banim3.append(ban3)
+    document.getElementById("store_a").append(image1,title1);
 
-    let ban4=document.createElement('img')
-    ban4.src=d[3].bannerimg
-    let banim4=document.querySelector('.bannerimg4')
-    banim4.append(ban4)
+    let image2=document.createElement("img");
+    image2.src=data[1].image;
+    image2.setAttribute("id","home_logo");
 
-    let ban5=document.createElement('img')
-    ban5.src=d[4].bannerimg
-    let banim5=document.querySelector('.bannerimg5')
-    banim5.append(ban5)
+    let title2=document.createElement("p");
+    title2.innerText=data[1].title;
+    title2.setAttribute("id","home_p");
 
-    let ban6=document.createElement('img')
-    ban6.src=d[5].bannerimg
-    let banim6=document.querySelector('.bannerimg6')
-    banim6.append(ban6)
-    // console.log(banim4,'bbb')
-
-    let ban7=document.createElement('img')
-    ban7.src=d[6].bannerimg
-    let banim7=document.querySelector('.bannerimg7')
-    banim7.append(ban7)
- //slick append 
-    let slick1=document.createElement('div');
-    slick1.setAttribute('id','slick');
-
-    let container=document.createElement('div');
-    container.setAttribute('class','container')
-
-    let row=document.createElement('div');
-    row.setAttribute('class','row')
-
-    let col=document.createElement('div');
-    col.setAttribute('class','col-lg-12')
-
-    let slidercont=document.createElement('div');
-    slidercont.setAttribute('class','slider_content')
-
-    let item1=document.createElement('div');
-    item1.setAttribute('class','slider_items');
-    let img1=document.createElement('img');
-    img1.src=d[1].img1;
-    item1.append(img1);
-
-    let item2=document.createElement('div');
-    item2.setAttribute('class','slider_items');
-    let img2=document.createElement('img');
-    img2.src=d[1].img2;
-    item2.append(img2);
+    document.getElementById("contact_a").append(image2,title2);
 
 
-    let item3=document.createElement('div');
-    item3.setAttribute('class','slider_items');
-    let img3=document.createElement('img');
-    img3.src=d[1].img3;
-    item3.append(img3);
+    let image3=document.createElement("img");
+    image3.src=data[2].image;
+    image3.setAttribute("id","name_logo");
+    document.getElementById("name_logo").append(image3);
 
-    let item4=document.createElement('div');
-    item4.setAttribute('class','slider_items');
-    let img4=document.createElement('img');
-    img4.src=d[1].img4;
-    item4.append(img4);
+    let image4=document.createElement("img");
+    image4.src=data[3].image;
+    image4.setAttribute("id","page_logo");
+    document.getElementById("page_logo1").append(image4);
 
-    let item5=document.createElement('div');
-    item5.setAttribute('class','slider_items');
-    let img5=document.createElement('img');
-    img5.src=d[1].img5;
-    item5.append(img5);
+    let image5=document.createElement("img");
+    image5.src=data[4].image;
+    image5.setAttribute("id","page_logo");
+    document.getElementById("page_logo2").append(image5);
 
-    slidercont.append(item1,item2,item3,item4,item5)
+    let image6=document.createElement("img");
+    image6.src=data[5].image;
+    image6.setAttribute("id","page_logo");
+    document.getElementById("page_logo3").append(image6);
 
-    col.append(slidercont)
-    row.append(col)
-    container.append(row)
-    slick1.append(container)
-    // console.log(slick1)
-    car.append(slick1)
-    // console.log(car)
-    // --------------------slide2---------------
 
-    // _______________JQuery_______________________
-    
-    
-    var a=document.querySelector('.slider_content');
-    // console.log(a)
+    let cat1=document.createElement("p");
+    cat1.innerText=data[6].title;
+    cat1.setAttribute("id","cat_p");
+    document.getElementById("mens").append(cat1);
 
-    $(document).ready(function(){
-        $(a).slick({
-        // dots: false,
-        infinite: true,
-        speed: 200,
-        slidesToShow: 1,
-        autoplay: true,
-        adaptiveHeight: true,
-        arrows:false,
-        dots:true,
-        mobileFirst:true
-        });
-    });
+    let cat2=document.createElement("p");
+    cat2.innerText=data[7].title;
+    cat2.setAttribute("id","cat_p");
+    document.getElementById("women").append(cat2);
+
+    let cat3=document.createElement("p");
+    cat3.innerText=data[8].title;
+    cat3.setAttribute("id","cat_p");
+    document.getElementById("kids").append(cat3);
+
+    let cat4=document.createElement("p");
+    cat4.innerText=data[9].title;
+    cat4.setAttribute("id","cat_p");
+    document.getElementById("watch").append(cat4);
+
+    let cat5=document.createElement("p");
+    cat5.innerText=data[10].title;
+    cat5.setAttribute("id","cat_p");
+    document.getElementById("beauty").append(cat5);
+
+    let cat6=document.createElement("p");
+    cat6.innerText=data[11].title;
+    cat6.setAttribute("id","cat_p");
+    document.getElementById("homestop").append(cat6);
+
+    let cat7=document.createElement("p");
+    cat7.innerText=data[12].title;
+    cat7.setAttribute("id","cat_p");
+    document.getElementById("luxe").append(cat7);
+
+    let cat8=document.createElement("p");
+    cat8.innerText=data[13].title;
+    cat8.setAttribute("id","cat_p");
+    document.getElementById("gifts").append(cat8);
+
+    let cat9=document.createElement("p");
+    cat9.innerText=data[13].title;
+    cat9.setAttribute("id","cat_p");
+    document.getElementById("brands").append(cat9);
+
+    let cat10=document.createElement("p");
+    cat10.innerText=data[14].title;
+    cat10.setAttribute("id","cat_p");
+    document.getElementById("bargain").append(cat10);
+
+
     
 }
-
-function slider2(d){
-    let slick1=document.createElement('div');
-    slick1.setAttribute('id','slick');
-
-    let container=document.createElement('div');
-    container.setAttribute('class','container')
-
-    let row=document.createElement('div');
-    row.setAttribute('class','row')
-
-    let col=document.createElement('div');
-    col.setAttribute('class','col-lg-12')
-
-    let slidercont=document.createElement('div');
-    slidercont.setAttribute('class','slider_content2')
-
-    let item1=document.createElement('div');
-    item1.setAttribute('class','slider_items');
-    let img1=document.createElement('img');
-    img1.src=d[2].img1;
-    item1.append(img1);
-
-    let item2=document.createElement('div');
-    item2.setAttribute('class','slider_items');
-    let img2=document.createElement('img');
-    img2.src=d[2].img2;
-    item2.append(img2);
-
-
-    
-
-    slidercont.append(item1,item2)
-
-    col.append(slidercont)
-    row.append(col)
-    container.append(row)
-    slick1.append(container)
-    // console.log(slick1)
-    car2.append(slick1)
-    // console.log(car2)
-    // --------------------slide2---------------
-
-    // _______________JQuery_______________________
-    
-    
-    var a=document.querySelector('.slider_content');
-    // console.log(a)
-
-    $(document).ready(function(){
-        $('.slider_content2').slick({
-            
-            infinite: true,
-            speed: 200,
-            slidesToShow: 1,
-            autoplay: true,
-            adaptiveHeight: true,
-            arrows:false,
-            dots:true,
-            mobileFirst:true
-        });
-    });
-}
-
-function slider3(d){
-    let slick1=document.createElement('div');
-    slick1.setAttribute('id','slick');
-
-    let container=document.createElement('div');
-    container.setAttribute('class','container')
-
-    let row=document.createElement('div');
-    row.setAttribute('class','row')
-
-    let col=document.createElement('div');
-    col.setAttribute('class','col-lg-12')
-
-    let slidercont=document.createElement('div');
-    slidercont.setAttribute('class','slider_content3')
-
-    let item1=document.createElement('div');
-    item1.setAttribute('class','slider_items');
-    let img1=document.createElement('img');
-    img1.src=d[3].img1;
-    item1.append(img1);
-
-    let item2=document.createElement('div');
-    item2.setAttribute('class','slider_items');
-    let img2=document.createElement('img');
-    img2.src=d[3].img2;
-    item2.append(img2);
-
-
-    
-
-    slidercont.append(item1,item2)
-
-    col.append(slidercont)
-    row.append(col)
-    container.append(row)
-    slick1.append(container)
-    // console.log(slick1)
-    car3.append(slick1)
-    // console.log(car3)
-    // --------------------slide2---------------
-
-    // _______________JQuery_______________________
-    
-    
-    var a=document.querySelector('.slider_content');
-    // console.log(a)
-
-    $(document).ready(function(){
-        $('.slider_content3').slick({
-            
-            infinite: true,
-            speed: 200,
-            slidesToShow: 1,
-            autoplay: true,
-            adaptiveHeight: true,
-            arrows:false,
-            dots:true,
-            mobileFirst:true
-        });
-    });
-}
-
-function slider4(d){
-    
-     //slick append 
-        let slick1=document.createElement('div');
-        slick1.setAttribute('id','slick');
-    
-        let container=document.createElement('div');
-        container.setAttribute('class','container')
-    
-        let row=document.createElement('div');
-        row.setAttribute('class','row')
-    
-        let col=document.createElement('div');
-        col.setAttribute('class','col-lg-12')
-    
-        let slidercont=document.createElement('div');
-        slidercont.setAttribute('class','slider_content4')
-    
-        let item1=document.createElement('div');
-        item1.setAttribute('class','slider_items');
-        let img1=document.createElement('img');
-        img1.src=d[4].img1;
-        item1.append(img1);
-    
-        let item2=document.createElement('div');
-        item2.setAttribute('class','slider_items');
-        let img2=document.createElement('img');
-        img2.src=d[4].img2;
-        item2.append(img2);
-    
-    
-        let item3=document.createElement('div');
-        item3.setAttribute('class','slider_items');
-        let img3=document.createElement('img');
-        img3.src=d[4].img3;
-        item3.append(img3);
-    
-        let item4=document.createElement('div');
-        item4.setAttribute('class','slider_items');
-        let img4=document.createElement('img');
-        img4.src=d[4].img4;
-        item4.append(img4);
-    
-        let item5=document.createElement('div');
-        item5.setAttribute('class','slider_items');
-        let img5=document.createElement('img');
-        img5.src=d[4].img5;
-        item5.append(img5);
-    
-        slidercont.append(item1,item2,item3,item4,item5)
-    
-        col.append(slidercont)
-        row.append(col)
-        container.append(row)
-        slick1.append(container)
-        // console.log(slick1)
-        car4.append(slick1)
-        // console.log(car)
-        // --------------------slide2---------------
-    
-        // _______________JQuery_______________________
-        
-        
-        var a=document.querySelector('.slider_content4');
-        // console.log(a)
-    
-        $(document).ready(function(){
-            $(a).slick({
-            // dots: false,
-            infinite: true,
-            speed: 200,
-            slidesToShow: 1,
-            autoplay: true,
-            adaptiveHeight: true,
-            arrows:false,
-            dots:true,
-            mobileFirst:true
-            });
-        });
-}
-
-function slider5(d){
-    
-    //slick append 
-       let slick1=document.createElement('div');
-       slick1.setAttribute('id','slick');
-   
-       let container=document.createElement('div');
-       container.setAttribute('class','container')
-   
-       let row=document.createElement('div');
-       row.setAttribute('class','row')
-   
-       let col=document.createElement('div');
-       col.setAttribute('class','col-lg-12')
-   
-       let slidercont=document.createElement('div');
-       slidercont.setAttribute('class','slider_content5')
-   
-       let item1=document.createElement('div');
-       item1.setAttribute('class','slider_items');
-       let img1=document.createElement('img');
-       img1.src=d[6].img1;
-       item1.append(img1);
-   
-       let item2=document.createElement('div');
-       item2.setAttribute('class','slider_items');
-       let img2=document.createElement('img');
-       img2.src=d[6].img2;
-       item2.append(img2);
-   
-   
-       let item3=document.createElement('div');
-       item3.setAttribute('class','slider_items');
-       let img3=document.createElement('img');
-       img3.src=d[6].img3;
-       item3.append(img3);
-   
-       let item4=document.createElement('div');
-       item4.setAttribute('class','slider_items');
-       let img4=document.createElement('img');
-       img4.src=d[6].img4;
-       item4.append(img4);
-   
-       let item5=document.createElement('div');
-       item5.setAttribute('class','slider_items');
-       let img5=document.createElement('img');
-       img5.src=d[6].img5;
-       item5.append(img5);
-   
-       slidercont.append(item1,item2,item3,item4,item5)
-   
-       col.append(slidercont)
-       row.append(col)
-       container.append(row)
-       slick1.append(container)
-       console.log(slick1,'s')
-       car5.append(slick1)
-       // console.log(car)
-       // --------------------slide2---------------
-   
-       // _______________JQuery_______________________
-       
-       
-       var a=document.querySelector('.slider_content5');
-    //    console.log(a)
-   
-       $(document).ready(function(){
-           
-            $(a).slick({
-                    // dots: false,
-                    infinite: true,
-                    speed: 200,
-                    slidesToShow: 1,
-                    autoplay: true,
-                    adaptiveHeight: true,
-                    arrows:false,
-                    dots:true,
-                    mobileFirst:true
-            });
-       });
-}
-
-var slik1=document.getElementById('slick1')
-var slik2=document.getElementById('slick2')
-function divslider(d){
-    let cont1=document.createElement('div')
-    cont1.setAttribute('class','cont1')
-    let icont=document.createElement('div')
-    icont.setAttribute('class','imgcont')
-    var img1=document.createElement('img')
-    img1.src=d[7].img1
-    let txtcon=document.createElement('div')
-    txtcon.setAttribute('class','txtcont')
-    let top=document.createElement('div')
-    top.setAttribute('class','topt')
-    
-    let phd=document.createElement('p')
-    phd.setAttribute('class','prodhead')
-    phd.innerText=d[7].ph
-    let pd=document.createElement('p')
-    pd.setAttribute('class','prodesc')
-    pd.innerText=d[7].pd
-
-    let price=document.createElement('div')
-    price.setAttribute('class','price')
-
-    let pdprice=document.createElement('p')
-    pdprice.setAttribute('class','prodprice')
-    pdprice.innerText=d[7].pdprice
-
-    let pstr=document.createElement('p')
-    pstr.setAttribute('class','pricestrike')
-
-    let str=document.createElement('strike')
-    str.innerText=d[7].sp
-
-    let bot=document.createElement('div')
-    bot.setAttribute('class','bottom')
-    let addbg=document.createElement('p')
-    let ahr=document.createElement('a')
-    addbg.setAttribute('class','addbag')
-    addbg.innerText=d[7].bag
-    ahr.append(addbg)
-    bot.append(ahr)
-    pdprice.append()
-
-
-}
-

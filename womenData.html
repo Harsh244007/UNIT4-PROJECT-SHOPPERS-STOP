@@ -1,4 +1,27 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="mensData.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://npmcdn.com/flickity@2/dist/flickity.css"
+    />
+   
+  </head>
+  <style>
+    
 /*header css*/
 
 #top_header{
@@ -145,149 +168,46 @@ font-family: sans-serif;
   color: black;
   font-weight: 600;
 }
+  </style>
+  <body>
+    <div id="header">
 
-
-
-
-
-body{
-    background-color: white;
-}
-.slick-slide>img{
-    width: 100%;
-}
-#slick{
-    width: 100%;
-    margin: auto;
-}
-/* .slick1{
-    margin-left: 5%;
-    margin-right: 5%;
-} */
-.slick-arrow{
-    background-color: black;
-    border-radius: 50%;
-    position: absolute;
-    display: block;
-    width: 25px;
-    height: 25px;
-}
-.slick-next{
-    right: 38px;
-    top: 40%;
-}
-.slick-prev{
-    left: -10px;
-    z-index: 1;
-    top: 40%;
-}
-.carousel,.carousel1,.carousel2,.carousel3{
-    width: 100%;
-}
-
-.slick-track>.cont1{
-    /* height: 85%; */
-    width: 100%;
-    margin: 0.1%;
-}
-.slick-track>.cont1>.imgcont{
-    width: 100%;
-}
-.slick-track>.cont1>.imgcont>img{
-    width: 78%;
+    </div>
     
-}
-.slider_content{
-    width: 100%;
-}
-.slider_content>.slider_items{
-    width: 100%;
-}
-.slider_content>.slider_items>img{
-    width: 100%;
-}
-.bottomt{
-    margin-left: 10%;
-}
-.price{
-    display: flex;
-    /* border: 1px solid red; */
-    height: 30px;
-    width: 60%;
-}
-.pricestrike{
-    margin-left: 4%;
     
-}
-p{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.prodhead{
-    font-size: 21px;
-    margin-bottom: 0px;
-}
-.prodesc, .pricestrike{
-    color: rgb(158, 156, 156);
-    margin-top: 0px;
-}
-.prodprice{
-    margin-top: 0px;
-}
-.w3-image{
-    max-width:100%;
-}
-.slick-dots{
-    top: 80%;
     
-}
-.slick-dots li button::before {
-    font-size: 10px;
-    color: #fff;
-    opacity: 0.7;
-  }
 
-  .slick-dots li.slick-active button::before {
-    color: rgb(240, 86, 15);
-    opacity: 1;
-  }
-/* **************************************** */
-.bannerimg,.bannerimg2,.bannerimg4,.bannerimg5,.bannerimg6,.bannerimg7{
-    width: 100%;
-}
-.bannerimg>img,.bannerimg2>img,.bannerimg4>img,.bannerimg5>img,.bannerimg6>img,.bannerimg7>img{
-    width: 100%;
-}
-/* ****************************************** */
-.imgflex{
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    /* margin-left: 15%; */
-}
-.imgdivflex{
-    margin-left: 3%;
-}
-.imgdivflex>img{
-    width: 100%;
-}
-p{
-    color: black;
-}
-#whole{
-    width: 100%;
-}
-.flexbody{
-    width: 75%;
-    margin: auto;
-}
-.imgflex{
-    width: 100%;
-}
-.kidsflex{
-    display: flex;
-}
-.kidsflex>img{
-    max-width: 20%;
-    margin-bottom: 2%;
-}
+      <div id="GPContainer"></div>
+      <p id="PeopleViewed">People Also View</p>
+      <div id="FirstSlider" class="carousel1" data-flickity='{ "groupCells": "100%","groupCells": true }'></div>
+
+      <div id="footer">
+    
+      </div>
+    </body>
+</html>
+
+<script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="womenData.js"></script>
+<script type="module">
+    
+  import header from "./components/header.js";
+  
+  let header_box=document.getElementById("header");
+  header_box.innerHTML=header();
+  
+  let input=document.getElementById('search_btn');
+  
+  input.addEventListener('click',()=>{
+      let input_value=document.getElementById('search_bar');
+      localStorage.setItem("search_value",JSON.stringify(input_value));
+      window.location.href="footer.html";
+  });
+  
+  import footer from "./components/footer.js";
+  
+  let footer_box=document.getElementById('footer');
+  footer_box.innerHTML=footer();
+  
+  </script>
